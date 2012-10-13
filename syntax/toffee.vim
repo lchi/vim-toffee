@@ -13,11 +13,13 @@ unlet! b:current_syntax
 syn include @coffeeAll syntax/coffee.vim
 syn include @htmlAll syntax/html.vim
 
-syn region coffeeMode start=/{#/ms=e+1,hs=e+1 end=/#}/me=s-1,he=s-1
-\  contains=@coffeeAll, htmlMode
-syn region htmlMode start=/{:/ms=e+1,hs=e+1 end=/:}/ms=s-1,he=s-1
-\  contains=@htmlAll contained
+syn region coffeeMode start=/\(:}\|{#\)/ms=e+1,hs=e+1 end=/\(#}\|{:\)/me=s-1,he=s-1
+\  contains=@coffeeAll
+"syn region htmlMode start=/{:/ms=e+1,hs=e+1 end=/:}/ms=s-1,he=s-1
+"\  contains=@htmlAll
 
 syn region toffeeBlockComment start=/{##/ end=/##}/
+syn region toffeeInterpolation start=/#{/ms=e+1 end=/}/me=s-1
+\  contains=@coffeeAll
 
 hi def link toffeeBlockComment Comment
