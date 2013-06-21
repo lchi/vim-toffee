@@ -3,4 +3,4 @@
 " URL:         http://github.com/lchi/vim-toffee
 " License:     GPL v3
 
-autocmd BufNewFile,BufRead *.toffee set filetype=coffee
+autocmd BufNewFile,BufRead *.toffee set filetype=toffee
